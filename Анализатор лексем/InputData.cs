@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
@@ -15,6 +16,7 @@ namespace Анализатор_лексем
 
         public static char Current { get { return Data[Pointer]; } }
 
+        public static List<(string, string)> lexems = new List<(string, string)>();
 
         public static string CurentCharGroup()
         {

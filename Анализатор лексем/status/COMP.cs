@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Анализатор_лексем
 {
@@ -14,8 +15,8 @@ namespace Анализатор_лексем
 
         private static void END()
         {
-            if (InputData.Current == ' ') Console.WriteLine($"Распознан оператор сравнения: {prev} ");
-            else if (InputData.Current == '=') Console.WriteLine($"Распознан оператор сравнения: {prev}= ");
+            if (InputData.Current == ' ') InputData.lexems.Add(("оператор сравнения", prev.ToString())); //Console.WriteLine($"Распознан оператор сравнения: {prev} ");
+            else if (InputData.Current == '=') InputData.lexems.Add(("оператор сравнения", prev.ToString() + '='));
             else throw new Exception("Недопустимый символ");
 
             InputData.Pointer++;

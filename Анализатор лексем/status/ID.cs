@@ -21,9 +21,12 @@ namespace Анализатор_лексем
         private static void END_minus()
         {
             if (_reservedWords.Contains(_name))
-                Console.WriteLine($"Распознано зарезервированное слово: {_name};");
+                InputData.lexems.Add(("зарезервированное_слово", _name));
+            //Console.WriteLine($"Распознано зарезервированное слово: {_name};");
             else
-                Console.WriteLine($"Распознан идентификатор: {_name};");
+                InputData.lexems.Add(("идентификатор", _name));
+            //Console.WriteLine($"Распознан идентификатор: {_name};");
+
             _name = "";
         }
 

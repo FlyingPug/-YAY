@@ -14,12 +14,14 @@ namespace Анализатор_лексем
         private static void END()
         {
             InputData.Pointer++;
-            Console.WriteLine($"Распознано число: {number};");
+            // Console.WriteLine($"Распознано число: {number};");
+            InputData.lexems.Add(("Число", number.ToString()));
             number = 0;
         }
         private static void END_minus()
         {
-            Console.WriteLine($"Распознано число: {number};");
+            //Console.WriteLine($"Распознано число: {number};");
+            InputData.lexems.Add(("Число", number.ToString()));
             number = 0;
         }
         public static void Analyse()

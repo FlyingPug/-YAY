@@ -12,8 +12,10 @@ namespace Анализатор_лексем
         private static string _string = "";
         private static void END()
         {
+            _string += InputData.Current;
+            InputData.lexems.Add(("Строка", _string));
             InputData.Pointer++;
-            Console.WriteLine($"Распознан строковый литерал: {_string};");
+            //Console.WriteLine($"Распознан строковый литерал: {_string}';");
             _string = "";
         }
 

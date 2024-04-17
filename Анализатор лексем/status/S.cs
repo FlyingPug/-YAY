@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,12 +14,14 @@ namespace Анализатор_лексем
     {
         public static void END(string data)
         {
-            Console.WriteLine($"Распознана лексема: <{InputData.Current}> - {data};");
+           // Console.WriteLine($"Распознана лексема: <{InputData.Current}> - {data};");
+            InputData.lexems.Add((InputData.Current.ToString(), data));
             InputData.Pointer++;
         }
 
-        public static void Analyse()
+        public static void Analyse(string data)
         {
+            InputData.Data = data;
             while (InputData.Pointer < InputData.Data.Length)
             {
                 string current = InputData.CurentCharGroup();
